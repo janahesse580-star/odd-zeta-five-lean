@@ -1,0 +1,24 @@
+.lake/
+build/
+ci-logs/
+audit.txt
+__pycache__/
+*.pyc
+*.olean
+*.ilean
+*.olean.*
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Recorded evidence distributed with this release.
+!/reports/axioms.log
+!/reports/certificate.log
+!/reports/dependencies.log
+!/reports/kernel-pilot.log
+!/reports/lake-build.log
+!/reports/pnt-retry.log

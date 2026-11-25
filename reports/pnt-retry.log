@@ -1,0 +1,5 @@
+$ lake build +MainlineThetaPrefix
+✔ [3787/3787] Built MainlineThetaPrefix (26s)
+Build completed successfully (3787 jobs).
+
+exit=0 wall_seconds=44.3

@@ -1,0 +1,51 @@
+name: Verify the five-value theorem
+"on": [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    env:
+      LEAN_NUM_THREADS: "2"
+      MATHLIB_NO_CACHE_ON_UPDATE: "1"
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Install elan and use the pinned toolchain
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          sh "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch the Mathlib cache
+        shell: bash
+        run: |
+          lean --version
+          python3 -I -S scripts/check-release.py cache-roots > "$RUNNER_TEMP/cache-roots"
+          mapfile -t roots < "$RUNNER_TEMP/cache-roots"
+          lake exe cache get "${roots[@]}"
+          python3 -I -S scripts/check-release.py sources
+      - name: Build the Lean release
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ci-logs
+          lake build 2>&1 | tee ci-logs/lake-build.log
+      - name: Check exact Lean axiom sets
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake env lean OddZetaFiveAudit.lean 2>&1 | tee ci-logs/axioms.log
+          python3 -I -S scripts/check-release.py audit ci-logs/axioms.log
+          python3 -I -S scripts/check-release.py sources | tee ci-logs/dependencies.log
+      - name: Verify the numerical certificate and regenerate all shards
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -I -S verify-certificate.py | tee ci-logs/certificate.log
+          python3 -I -S b40a/generate.py --output "$RUNNER_TEMP/generated"
+          diff -ru OddZetaSix/B40a/Certificate/Generated "$RUNNER_TEMP/generated"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: always()
+        with:
+          name: linux-verification
+          path: ci-logs/

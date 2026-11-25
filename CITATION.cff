@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Please cite this release if you use the B40a formalization or its certificate."
+type: software
+title: "Odd Zeta Five: The B40a Lean 4 formalization"
+authors:
+  - family-names: "JanaHesse580"
+    email: "JanaHesse580@gmail.com"
+version: "1.0.0"
+license: MIT
+keywords:
+  - Riemann zeta function
+  - irrationality
+  - Lean 4
+  - formal proof
+abstract: "A five-value irrationality theorem for the Riemann zeta function, with a Lean 4 development, a numerical certificate, an axiom audit, and a standard-library Python verifier."
+references:
+  - type: software
+    title: "odd-zeta-six-lean"
+    authors:
+      - family-names: "janahesse580-star"
+    commit: "09201a928982c1e282ba2a1a3156d8f400d4b436"
+    repository-code: "https://github.com/janahesse580-star/odd-zeta-six-lean"
+    url: "https://github.com/janahesse580-star/odd-zeta-six-lean/tree/09201a928982c1e282ba2a1a3156d8f400d4b436"

@@ -1,0 +1,455 @@
+$ lake build
+⚠ [3857/3866] Replayed OddZetaSix.B40a.Analysis.LogLookup
+warning: OddZetaSix/B40a/Analysis/LogLookup.lean:157:30: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Analysis/LogLookup.lean:157:30: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [3861/3866] Built OddZetaSix.B40a.Analysis.AngleIntervals (18s)
+warning: OddZetaSix/B40a/Analysis/AngleIntervals.lean:80:78: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3862/3874] Built OddZetaSix.B40a.Analysis.PhaseEndpoints (16s)
+warning: OddZetaSix/B40a/Analysis/PhaseEndpoints.lean:61:47: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Analysis/PhaseEndpoints.lean:61:47: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [3901/3916] Replayed OddZetaSix.B40a.Padic.JetBlock
+warning: OddZetaSix/B40a/Padic/JetBlock.lean:17:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3902/3916] Built OddZetaSix.B40a.Analysis.Vertical (45s)
+✔ [3904/3917] Built OddZetaSix.B40a.Analysis.CirclePotential (14s)
+✔ [3906/3922] Built OddZetaSix.B40a.Analysis.ClippedChord (18s)
+⚠ [3908/3924] Built OddZetaSix.B40a.Analysis.PhaseCurvature (17s)
+warning: OddZetaSix/B40a/Analysis/PhaseCurvature.lean:41:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OddZetaSix/B40a/Analysis/PhaseCurvature.lean:52:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OddZetaSix/B40a/Analysis/PhaseCurvature.lean:52:19: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OddZetaSix/B40a/Analysis/PhaseCurvature.lean:60:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3911/3924] Built OddZetaSix.B40a.Analysis.BendGeometry (53s)
+warning: OddZetaSix/B40a/Analysis/BendGeometry.lean:38:96: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Analysis/BendGeometry.lean:38:96: Unused tactic linter: `positivity` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [3913/3924] Built OddZetaSix.B40a.Analysis.PrimitiveVariation (16s)
+warning: OddZetaSix/B40a/Analysis/PrimitiveVariation.lean:15:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3914/3924] Built OddZetaSix.B40a.Analysis.Coordinates (12s)
+✔ [3915/3924] Built OddZetaSix.B40a.Analysis.BentContour (18s)
+✔ [3916/3926] Built OddZetaSix.B40a.Analysis.BlockQuadrature (15s)
+✔ [3917/3926] Built OddZetaSix.B40a.Analysis.Subexponential (13s)
+✔ [3918/3926] Built OddZetaSix.B40a.Analysis.ContourMoment (17s)
+✔ [3920/3940] Built OddZetaSix.B40a.Analysis.FiniteBlockRate (17s)
+✔ [3925/3946] Built OddZetaSix.B40a.Analysis.VandermondeContour (12s)
+⚠ [3926/3947] Built OddZetaSix.B40a.Analysis.BentKernelDecay (16s)
+warning: OddZetaSix/B40a/Analysis/BentKernelDecay.lean:117:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3927/3950] Built OddZetaSix.B40a.Analysis.RateReduction (13s)
+✔ [3929/3952] Built OddZetaSix.B40a.Analysis.CircleQuadrature (13s)
+✔ [3930/3953] Built OddZetaSix.B40a.Analysis.RisingInventory (15s)
+✔ [3931/3953] Built OddZetaSix.B40a.Analysis.CircleEnergy (22s)
+⚠ [3932/3953] Built OddZetaSix.B40a.Analysis.KernelPhase (20s)
+warning: OddZetaSix/B40a/Analysis/KernelPhase.lean:14:30: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OddZetaSix/B40a/Analysis/KernelPhase.lean:61:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3933/3978] Built OddZetaSix.B40a.Analysis.ScalarBudget (14s)
+⚠ [3939/3978] Replayed OddZetaSix.B40a.Padic.WindowHermite
+warning: OddZetaSix/B40a/Padic/WindowHermite.lean:69:48: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3943/3978] Replayed OddZetaSix.B40a.Padic.Subsequence
+warning: OddZetaSix/B40a/Padic/Subsequence.lean:33:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+ℹ [3947/3978] Replayed OddZetaSix.B40a.Padic.PoleReduction
+info: OddZetaSix/B40a/Padic/PoleReduction.lean:41:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [3954/3978] Built OddZetaSix.B40a.Analysis.SignedCircleEnergy (25s)
+✔ [3955/3978] Built OddZetaSix.B40a.Arithmetic.MiddleStripGrid (10s)
+✔ [3956/3978] Built OddZetaSix.B40a.Analysis.VandermondeEnergy (16s)
+⚠ [3957/3978] Built OddZetaSix.B40a.Arithmetic.MiddleWallTransport (14s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleWallTransport.lean:39:19: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3958/3978] Built OddZetaSix.B40a.Analysis.WitnessEnergy (13s)
+✔ [3959/3978] Built OddZetaSix.B40a.Arithmetic.MiddleRowStrips (14s)
+⚠ [3960/4003] Built OddZetaSix.B40a.Analysis.WeightedContour (14s)
+warning: OddZetaSix/B40a/Analysis/WeightedContour.lean:82:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4148/4188] Built OddZetaSix.B40a.Analysis.WitnessDistance (22s)
+ℹ [4150/4188] Built MainlinePrimeIntervals (16s)
+info: src/MainlinePrimeIntervals.lean:104:0: 'OddZetaPNT.theta_div_self_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlinePrimeIntervals.lean:105:0: 'OddZetaPNT.scaled_theta_div_nat_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlinePrimeIntervals.lean:106:0: 'OddZetaPNT.theta_interval_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlinePrimeIntervals.lean:107:0: 'OddZetaPNT.finite_step_theta_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlinePrimeIntervals.lean:108:0: 'OddZetaPNT.primeIntervalMass_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlinePrimeIntervals.lean:109:0: 'OddZetaPNT.primeIntervalMass_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlinePrimeIntervals.lean:110:0: 'OddZetaPNT.finite_step_prime_sum_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlinePrimeIntervals.lean:111:0: 'OddZetaPNT.finite_step_quadratic_cost_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [4152/4188] Built MainlineWeightedPrimes (23s)
+info: src/MainlineWeightedPrimes.lean:398:0: 'OddZetaPNT.primeWeightedSum_partial_summation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:399:0: 'OddZetaPNT.primeWeightedSum_id' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:400:0: 'OddZetaPNT.scaled_theta_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:401:0: 'OddZetaPNT.scaled_theta_intervalIntegrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:402:0: 'OddZetaPNT.scaled_theta_integral_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:403:0: 'OddZetaPNT.primeWeightedSum_id_scaled' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:404:0: 'OddZetaPNT.primeWeightedSum_id_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:405:0: 'OddZetaPNT.primeWeightedInterval_id_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:406:0: 'OddZetaPNT.primeWeightedInterval_id_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:407:0: 'OddZetaPNT.primeWeightedInterval_affine_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:408:0: 'OddZetaPNT.primeWeightedInterval_affine_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:409:0: 'OddZetaPNT.scaled_theta_weighted_integral_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:410:0: 'OddZetaPNT.primeWeightedInterval_C1_partial_summation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:411:0: 'OddZetaPNT.primeWeightedInterval_C1_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:412:0: 'OddZetaPNT.primeWeightedInterval_polynomial_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:413:0: 'OddZetaPNT.finite_piecewise_C1_prime_sum_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:414:0: 'OddZetaPNT.primeWeightedInterval_sub_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:415:0: 'OddZetaPNT.primeWeightedInterval_continuous_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:416:0: 'OddZetaPNT.finite_piecewise_continuous_prime_sum_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineWeightedPrimes.lean:417:0: 'OddZetaPNT.finite_piecewise_continuous_quadratic_cost_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [4154/4188] Built MainlineH158ContentRates (22s)
+info: src/MainlineH158ContentRates.lean:344:0: 'OddZetaPNT.primeBandCost_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:345:0: 'OddZetaPNT.primeBandCost_sub_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:346:0: 'OddZetaPNT.primeBandCost_bounded_perturbation_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:347:0: 'OddZetaPNT.h158Weight54_rounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:348:0: 'OddZetaPNT.h158Weight55_rounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:349:0: 'OddZetaPNT.h158Weight56_rounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:350:0: 'OddZetaPNT.h158_upper_endpoints_not_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:351:0: 'OddZetaPNT.primeBand_filter_open_eq_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:352:0: 'OddZetaPNT.primeBandCost_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:353:0: 'OddZetaPNT.h158Content54_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:354:0: 'OddZetaPNT.h158Content55_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:355:0: 'OddZetaPNT.h158Content56_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:356:0: 'OddZetaPNT.h158_integral_affine' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:357:0: 'OddZetaPNT.h158Profile54_continuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:358:0: 'OddZetaPNT.h158Profile54_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:359:0: 'OddZetaPNT.h158Profile54_prime_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:360:0: 'OddZetaPNT.h158Profile55_prime_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:361:0: 'OddZetaPNT.h158Profile56_prime_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:362:0: 'OddZetaPNT.h158Weight54_band_rounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:363:0: 'OddZetaPNT.h158Weight55_band_rounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:364:0: 'OddZetaPNT.h158Weight56_band_rounding' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:365:0: 'OddZetaPNT.h158Content54_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:366:0: 'OddZetaPNT.h158Content55_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:367:0: 'OddZetaPNT.h158Content56_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:368:0: 'OddZetaPNT.h158Content54_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:369:0: 'OddZetaPNT.h158Content55_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: src/MainlineH158ContentRates.lean:370:0: 'OddZetaPNT.h158Content56_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [4155/4188] Built PNTDependency (14s)
+✔ [4156/4197] Built OddZetaSix.SixPNTBridge (38s)
+✔ [4157/4197] Built OddZetaSix.B40a.Analysis.WitnessRowChecks (120s)
+⚠ [4158/4197] Built OddZetaSix.B40a.Arithmetic.Periodic (21s)
+warning: OddZetaSix/B40a/Arithmetic/Periodic.lean:91:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: OddZetaSix/B40a/Arithmetic/Periodic.lean:129:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OddZetaSix/B40a/Arithmetic/Periodic.lean:189:21: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4159/4198] Built OddZetaSix.B40a.Analysis.WitnessBudget (14s)
+✔ [4160/4199] Built OddZetaSix.B40a.Arithmetic.PeriodicSlots (18s)
+⚠ [4161/4199] Built OddZetaSix.B40a.Analysis.ScalarReduction (17s)
+warning: OddZetaSix/B40a/Analysis/ScalarReduction.lean:23:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4162/4201] Built OddZetaSix.B40a.Analysis.FieldDrift (15s)
+⚠ [4163/4201] Built OddZetaSix.B40a.Analysis.PotentialEndpoints (16s)
+warning: OddZetaSix/B40a/Analysis/PotentialEndpoints.lean:46:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [4164/4201] Built OddZetaSix.B40a.Arithmetic.MiddleGridSum (10s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleGridSum.lean:56:12: This simp argument is unused:
+  ← sum_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [F]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [4166/4201] Built OddZetaSix.B40a.Arithmetic.ResidueCounts (23s)
+info: OddZetaSix/B40a/Arithmetic/ResidueCounts.lean:112:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✔ [4167/4204] Built OddZetaSix.B40a.Analysis.CheckedEndpoints (12s)
+⚠ [4168/4204] Built OddZetaSix.B40a.Arithmetic.KernelResidues (19s)
+info: OddZetaSix/B40a/Arithmetic/KernelResidues.lean:67:14: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: OddZetaSix/B40a/Arithmetic/KernelResidues.lean:67:14: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: OddZetaSix/B40a/Arithmetic/KernelResidues.lean:93:6: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_succ, Fin.sum_univ_zero, offsets, Matrix.cons_val_zero, Matrix.cons_val_succ,
+    add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [4169/4204] Built OddZetaSix.B40a.Analysis.RayTail (19s)
+⚠ [4171/4205] Built OddZetaSix.B40a.Analysis.ChordGeometry (14s)
+warning: OddZetaSix/B40a/Analysis/ChordGeometry.lean:17:88: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4172/4206] Built OddZetaSix.B40a.Arithmetic.MiddleLocal (19s)
+✔ [4174/4206] Built OddZetaSix.B40a.Analysis.ChordPhase (22s)
+✔ [4176/4207] Built OddZetaSix.B40a.Arithmetic.LocalNumerator (18s)
+✔ [4177/4208] Built OddZetaSix.B40a.Analysis.InteriorBound (14s)
+✔ [4179/4209] Built OddZetaSix.B40a.Analysis.ContourCover (17s)
+✔ [4181/4210] Built OddZetaSix.B40a.Analysis.CertifiedField (14s)
+✔ [4183/4211] Built OddZetaSix.B40a.Arithmetic.FoldedPackets (54s)
+⚠ [4185/4213] Built OddZetaSix.B40a.Analysis.EdgeCoordinates (23s)
+warning: OddZetaSix/B40a/Analysis/EdgeCoordinates.lean:113:78: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OddZetaSix/B40a/Analysis/EdgeCoordinates.lean:113:117: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4187/4214] Built OddZetaSix.B40a.Analysis.EdgeLength (14s)
+✔ [4188/4215] Built OddZetaSix.B40a.Arithmetic.FoldedContent (20s)
+✔ [4191/4216] Built OddZetaSix.B40a.Analysis.FiniteDensity (15s)
+✔ [4192/4217] Built OddZetaSix.B40a.Arithmetic.MiddleAtom (21s)
+✔ [4194/4217] Built OddZetaSix.B40a.Analysis.AnalyticRate (14s)
+✔ [4196/4218] Built OddZetaSix.B40a.Arithmetic.MiddleSlot (17s)
+✔ [4198/4219] Built OddZetaSix.B40a.Arithmetic.MiddleSuffix (16s)
+✔ [4200/4220] Built OddZetaSix.B40a.Arithmetic.MiddleSiteBridge (44s)
+✔ [4202/4223] Built OddZetaSix.B40a.Arithmetic.MiddleStrip (18s)
+✔ [4204/4227] Built OddZetaSix.B40a.Arithmetic.MiddleFoldWalls (16s)
+✔ [4206/4228] Built OddZetaSix.B40a.Arithmetic.MiddleStripBag (15s)
+✔ [4207/4228] Built OddZetaSix.B40a.Arithmetic.MiddleMovingSite (20s)
+⚠ [4208/4230] Built OddZetaSix.B40a.Arithmetic.PrimeSums (20s)
+warning: OddZetaSix/B40a/Arithmetic/PrimeSums.lean:183:6: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [4209/4230] Built OddZetaSix.B40a.Arithmetic.MiddleClassSites (17s)
+✔ [4210/4230] Built OddZetaSix.B40a.Arithmetic.WeightedPNT (19s)
+ℹ [4211/4230] Replayed OddZetaSix.B40a.Certificate.ArithmeticNativeAudit
+info: OddZetaSix/B40a/Certificate/ArithmeticNativeAudit.lean:17:0: 'OddZetaSix.B40a.Cert.Native.middle_rows_checked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ middle_rows_checked._native.native_decide.ax_1_1]
+info: OddZetaSix/B40a/Certificate/ArithmeticNativeAudit.lean:18:0: 'OddZetaSix.B40a.Cert.Native.arithmetic_row_sums_checked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ middle_rows_checked._native.native_decide.ax_1_1]
+✔ [4212/4230] Built OddZetaSix.SixPeriodicRate (240s)
+✔ [4213/4230] Built OddZetaSix.B40a.Arithmetic.MiddleRealBag (16s)
+✔ [4214/4230] Built OddZetaSix.B40a.Arithmetic.MiddleBoundary (16s)
+✔ [4215/4230] Built OddZetaSix.B40a.Arithmetic.MiddleActualLayers (18s)
+✔ [4216/4230] Built OddZetaSix.B40a.Arithmetic.MiddleHistogram (16s)
+✔ [4217/4230] Built OddZetaSix.B40a.Arithmetic.MiddleRanked (15s)
+✔ [4218/4230] Built OddZetaSix.B40a.Arithmetic.MiddleScaling (15s)
+⚠ [4219/4230] Built OddZetaSix.B40a.Arithmetic.MiddleMovingBags (18s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleMovingBags.lean:11:83: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleMovingBags.lean:11:83: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleMovingBags.lean:54:77: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4220/4230] Built OddZetaSix.B40a.Arithmetic.MiddleCapLayers (16s)
+✔ [4221/4230] Built OddZetaSix.B40a.Arithmetic.MiddleSampleGrid (18s)
+⚠ [4222/4230] Built OddZetaSix.B40a.Arithmetic.MiddleSweepMinimum (16s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleSweepMinimum.lean:17:39: Unused tactic linter: `split` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleSweepMinimum.lean:17:49: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleSweepMinimum.lean:17:39: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleSweepMinimum.lean:17:49: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleSweepMinimum.lean:44:16: This simp argument is unused:
+  getElem!_pos b.2 i his
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [F, his]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [4223/4237] Built OddZetaSix.B40a.Arithmetic.MiddleLayerCompare (17s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleLayerCompare.lean:77:41: Unused tactic linter: `split` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleLayerCompare.lean:77:51: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleLayerCompare.lean:77:41: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleLayerCompare.lean:77:51: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [4224/4239] Built OddZetaSix.B40a.Arithmetic.PeriodicWallCost (17s)
+warning: OddZetaSix/B40a/Arithmetic/PeriodicWallCost.lean:115:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4225/4242] Built OddZetaSix.B40a.Arithmetic.PeriodicGrid (18s)
+⚠ [4226/4242] Built OddZetaSix.B40a.Arithmetic.SmallPrimeIntegral (21s)
+warning: OddZetaSix/B40a/Arithmetic/SmallPrimeIntegral.lean:37:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OddZetaSix/B40a/Arithmetic/SmallPrimeIntegral.lean:36:2: Unused tactic linter: `norm_num` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [4227/4242] Built OddZetaSix.B40a.Arithmetic.ReciprocalBudget (19s)
+✔ [4228/4242] Built OddZetaSix.B40a.Arithmetic.PeriodicMidpoint (17s)
+✔ [4229/4243] Built OddZetaSix.B40a.Arithmetic.SmallMidpointAudit (160s)
+✔ [4230/4244] Built OddZetaSix.B40a.Arithmetic.PeriodicAffine (17s)
+✔ [4231/4245] Built OddZetaSix.SixHighWalls (538s)
+✔ [4232/4245] Built OddZetaSix.B40a.Arithmetic.AffineMean (15s)
+✔ [4233/4245] Built OddZetaSix.B40a.Arithmetic.SmallAffine000 (109s)
+⚠ [4234/4246] Built OddZetaSix.B40a.Arithmetic.SmallTileBound (20s)
+warning: OddZetaSix/B40a/Arithmetic/SmallTileBound.lean:55:63: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/SmallTileBound.lean:55:63: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [4235/4246] Built OddZetaSix.B40a.Arithmetic.MiddleRowPenalty (20s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleRowPenalty.lean:98:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleRowPenalty.lean:98:6: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [4236/4247] Built OddZetaSix.B40a.Arithmetic.SmallAffine002 (116s)
+✔ [4237/4247] Built OddZetaSix.B40a.Arithmetic.ReciprocalTile (19s)
+✔ [4238/4248] Built OddZetaSix.B40a.Arithmetic.SmallAffine004 (108s)
+⚠ [4239/4248] Built OddZetaSix.B40a.Arithmetic.MiddleDiscreteValue (19s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleDiscreteValue.lean:126:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4240/4248] Built OddZetaSix.B40a.Arithmetic.SmallAffine006 (111s)
+✔ [4241/4249] Built OddZetaSix.B40a.Arithmetic.SmallAffine008 (136s)
+⚠ [4242/4250] Built OddZetaSix.B40a.Arithmetic.MiddleRowExpression (22s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleRowExpression.lean:82:10: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleRowExpression.lean:115:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4243/4250] Built OddZetaSix.B40a.Arithmetic.SmallRowEstimate (357s)
+✔ [4244/4251] Built OddZetaSix.B40a.Arithmetic.SmallAffine010 (132s)
+⚠ [4245/4251] Built OddZetaSix.B40a.Arithmetic.MiddleIntegral (21s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleIntegral.lean:28:6: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleIntegral.lean:28:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [4246/4252] Built OddZetaSix.B40a.Arithmetic.SmallBandCover (26s)
+✔ [4247/4252] Built OddZetaSix.B40a.Arithmetic.SmallAffine012 (133s)
+⚠ [4248/4253] Built OddZetaSix.B40a.Arithmetic.MiddleBandRate (29s)
+warning: OddZetaSix/B40a/Arithmetic/MiddleBandRate.lean:101:6: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: OddZetaSix/B40a/Arithmetic/MiddleBandRate.lean:109:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [4249/4258] Built OddZetaSix.B40a.Arithmetic.SmallAffine014 (123s)
+✔ [4250/4258] Built OddZetaSix.B40a.Arithmetic.SmallAffine016 (109s)
+✔ [4251/4258] Built OddZetaSix.B40a.Arithmetic.SmallAffine018 (108s)
+✔ [4253/4266] Built OddZetaSix.B40a.Arithmetic.SmallAffine022 (17s)
+⚠ [4255/4266] Built OddZetaSix.B40a.Arithmetic.HighTailRate (21s)
+warning: OddZetaSix/B40a/Arithmetic/HighTailRate.lean:71:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/HighTailRate.lean:71:19: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/HighTailRate.lean:96:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/HighTailRate.lean:96:19: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/HighTailRate.lean:120:19: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: OddZetaSix/B40a/Arithmetic/HighTailRate.lean:120:19: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: OddZetaSix/B40a/Arithmetic/HighTailRate.lean:154:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [4256/4266] Built OddZetaSix.B40a.Arithmetic.PartialRate (15s)
+✔ [4257/4266] Built OddZetaSix.B40a.Arithmetic.SmallAffine020 (106s)
+✔ [4258/4266] Built OddZetaSix.B40a.Arithmetic.SmallAffineAudit (13s)
+✔ [4259/4266] Built OddZetaSix.B40a.Arithmetic.SmallRowBudget (11s)
+⚠ [4260/4266] Built OddZetaSix.B40a.Arithmetic.SmallBandRate (13s)
+warning: OddZetaSix/B40a/Arithmetic/SmallBandRate.lean:91:6: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [4261/4266] Built OddZetaSix.B40a.Arithmetic.SmallPrimeRate (15s)
+✔ [4262/4266] Built OddZetaSix.B40a.Arithmetic.OuterBandsRate (13s)
+✔ [4263/4266] Built OddZetaSix.B40a.Arithmetic.ArithRate (12s)
+✔ [4264/4266] Built OddZetaSix.B40a.Main (11s)
+✔ [4265/4266] Built OddZetaFive (11s)
+Build completed successfully (4266 jobs).
+
+exit=0 wall_seconds=2424.9

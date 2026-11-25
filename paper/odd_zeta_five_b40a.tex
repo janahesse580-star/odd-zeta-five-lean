@@ -1,0 +1,465 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,geometry,array,url}
+\geometry{margin=1in}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Irrationality in the five odd zeta values from 7 to 15},
+  pdfauthor={JanaHesse580},pdfsubject={B40a determinant construction and Lean 4 formalization}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\val}{v_p}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\setlength{\emergencystretch}{2em}
+\title{Irrationality in the five odd zeta values from 7 to 15\\
+\large A determinant construction with a Lean 4 certificate}
+\author{JanaHesse580\\ \small\texttt{JanaHesse580@gmail.com}}
+\date{November 2026 \qquad Software release 1.0.0}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the Riemann zeta function, at least one of the values at
+$7,9,11,13,15$ is irrational. We use a determinant of order $40n$ whose
+entries are rational linear forms in these values and $1$. At the scale
+$2000n^2$ the analytic determinant has upper exponent $-6.19$, while
+clearing its polynomial content costs at most $6.1405$. A confluent
+interpolation calculation at primes $51n+1$ supplies nonvanishing at
+rational specializations. The accompanying Lean development formalizes
+the argument. One finite check on 1,375 arithmetic rows uses native
+evaluation. A separate standard-library Python program recomputes these
+rows and the numerical bounds.
+\end{abstract}
+
+\section{Statement and the integer contradiction}
+Zudilin's four-value result concerns $\{5,7,9,11\}$~\cite{zud};
+his earlier theorem also gives an irrational value among the odd indices
+from 7 to 37~\cite{zud2}. These statements illustrate the importance
+of specifying both endpoints. The six-value Lean development used here
+as a software baseline includes the index 17~\cite{six}. We change the
+kernel, the size of the determinant, the local interpolation problem and
+the bounds on the determinant and its content.
+
+\begin{theorem}\label{thm}
+There exists $s\in\{7,9,11,13,15\}$ for which $\zeta(s)$ is irrational.
+\end{theorem}
+At these real arguments the Dirichlet series converges to the real part
+of Mathlib's complex Riemann zeta function. This is the quantity in the
+formal statement.
+
+Put $h=40n$ and $N=2000n^2$. The construction gives a rational polynomial
+determinant $D_n(\mathbf X)=c_n P_n(\mathbf X)$, with $c_n\ne0$,
+$P_n\in\Z[X_1,\ldots,X_5]$, and $\deg P_n\le h$. Write $\mathbf z$ for
+the ordered vector of the five zeta values. The three assertions needed are
+\begin{align}
+ D_n(\mathbf z)&=\det H_n,\qquad
+ |\det H_n|\le \exp(-6.19N) && (n\gg1),\label{eq:A}\\
+ |c_n|^{-1}&\le \exp(6.1405N) && (n\gg1),\label{eq:C}\\
+ P_n(\mathbf q)&\ne0 &&(n\text{ in a subsequence}).\label{eq:gate}
+\end{align}
+Suppose $Q\mathbf z\in\Z^5$ for an integer $Q\ge1$. Then
+$Q^h P_n(\mathbf z)$ is an integer. By \eqref{eq:gate} it is nonzero
+on a subsequence. Equations \eqref{eq:A}--\eqref{eq:C} bound its absolute
+value above by $\exp(40n\log Q-0.0495N)$, which tends to zero.
+This proves Theorem~\ref{thm} once the three assertions are established.
+
+\section{The B40a kernel and the five coordinates}
+For $(t)_m=\prod_{j=0}^{m-1}(t+j)$, let $d$ run with multiplicities
+over $\mathcal D=(0^6,8^4,9^2)$, where the superscripts denote repetitions.
+Set $c=59n+1$, $L=50$, $U=34$ and $s_0=25$. Define
+\begin{align*}
+ K_n(t)&=\frac{2\prod_{d\in\mathcal D}((50-2d)n)!}{((25n)!)^{10}}\,
+ \frac{(t+c)\big[(t+1)_{25n}(t+93n+2)_{25n}\big]^5}
+ {\prod_{d\in\mathcal D}(t+(34+d)n+1)_{(50-2d)n+1}},\\
+ E_0(x)&=1,\qquad E_i(x)=\frac{2x^2}{(2i)!}
+                    \prod_{j=1}^{i-1}(x^2-j^2)\quad(i\ge1),\\
+ R_{ij}(t)&=K_n(t)E_i(t+c)E_j(t+c),\qquad
+ (H_n)_{ij}=\sum_{v=0}^{\infty} R_{ij}^{(4)}(v-25n)/24,\quad 0\le i,j<h .
+\end{align*}
+The denominator has degree $500n+12$, the unweighted numerator degree
+$250n+1$, and the basis factors together have degree at most $160n-4$ for
+$n\ge1$. In particular the rational function decays faster than $1/t$.
+Write its principal parts as $\sum_{k,\ell} a_{k,\ell}(t+k)^{-\ell}$.
+Multiplication by the common denominator and comparison of the highest
+possible coefficient give $\sum_k a_{k,1}=0$. Reflection
+$t\mapsto-2c-t$ pairs $k$ with $2c-k$. The two numerator blocks exchange,
+the centered linear factor changes sign and the even basis factors are
+invariant. The reflected coefficients satisfy
+$a_{2c-k,\ell}=(-1)^{\ell+1}a_{k,\ell}$. All aggregate even orders
+therefore vanish. Every pole has order at most 12. The surviving orders
+are consequently $3,5,7,9,11$.
+
+After four derivatives the contribution of $(t+k)^{-\ell}$ is
+$\binom{\ell+3}{4}(t+k)^{-\ell-4}$. Its sum is that coefficient times
+$\zeta(\ell+4)-\sum_{r=1}^{k-25n-1}r^{-\ell-4}$.
+Thus order one cancels the possible $\zeta(5)$, and order thirteen,
+which would give $\zeta(17)$, is absent. Replacing the remaining five
+zeta values by variables gives an affine polynomial matrix $H^{\rm pol}$.
+Taking its determinant proves the evaluation identity and the degree
+bound. Dividing by rational content gives the integer polynomial used
+in Section~1. The formal construction also chooses a nonzero content
+in the degenerate case of a zero polynomial.
+
+\section{The local nonvanishing calculation}
+Take $p=51n+1$ prime and $\mathbf q$ integral at $p$. Work first in
+the basis $x^{2i}$. For $p>50n$ all factors from the within-block
+factorials are $p$-units. Split each finite harmonic sum into its
+$p$-integral terms and its denominators divisible by $p$. At this $p$,
+the singular part is supported on $k=76n+2,\ldots,84n+1$.
+Indeed $k-25n-1\ge p$ begins exactly at the first listed pole, while
+$k-25n-1<2p$. These $8n$ poles have multiplicity six. At each one
+the constant coefficient $u_k$ of the regularized kernel series is a
+unit. Removing the vanishing factors from the denominator leaves
+nonzero factors modulo $p$; the first numerator product at $-k$ has
+absolute factors $k-1-j$ strictly between $p$ and $2p$
+($0\le j<25n$). The second has factors $93n+2+j-k$ strictly between
+zero and $p$. The centered linear factor also has absolute value
+strictly between zero and $p$. This proves the claimed unit condition.
+
+Index columns by a pole and a Taylor order $a=0,\dots,4$. The associated
+change of basis is invertible modulo $p$. In absolute value the signed
+nodes $c-k$ range from $17n+1$ to $25n$ and their squares are distinct
+modulo $p$: the nodes are distinct and the sum of two absolute values
+is at most $50n<p$. The derivative of the squaring map is a unit at
+each node. If the first five coefficients of $F(x^2)$ vanish there,
+then $(X-(c-k)^2)^5$ divides $F$. The product over $8n$ nodes has degree
+$40n$, forcing $F=0$ when $\deg F<40n$. This proves invertibility of
+the square interpolation matrix.
+
+In interpolated coordinates scale each row and column of order $a$ by
+$p^{5-a}$. Off-diagonal pole blocks vanish modulo $p$. At a single
+pole the singular term of combined order $a+b$ leaves, up to the common
+sign and the unit $u_k$, the integer matrix
+\[
+ B=\left(\binom{9-a-b}{4}\right)_{0\le a,b<5}
+ =\begin{pmatrix}126&70&35&15&5\\70&35&15&5&1\\35&15&5&1&0\\
+ 15&5&1&0&0\\5&1&0&0&0\end{pmatrix}.
+\]
+Here the fourth derivative supplies the binomial coefficient; positive
+powers of $p$ kill higher Taylor corrections. More explicitly, if
+$U_k(T)$ is the quotient of the translated numerator by the translated
+pole-free cofactor, truncated to the six local coefficients, the scaled
+entry before reduction has weight
+\[
+ \sum_{r=0}^{5-a-b}p^r\binom{9-a-b-r}{4}[T^r]U_k(T)
+\]
+with an empty sum for $a+b>5$. All coefficients lie in the localization
+at $p$ and $[T^0]U_k=u_k$ modulo $p$. The interpolating polynomials
+have prescribed jets at this pole and zero jets through order four at
+the others. Terms from other poles and from the regular harmonic part
+drop out after the scaling and reduction (the regular part carries
+$p^{10-a-b}$). To compute the determinant,
+replace the rows by their successive forward differences evaluated at row
+zero, and then do the same to the columns. Both transformations have
+determinant one. Pascal's identity gives zero for $a+b>4$ and one for
+$a+b=4$. Reversal of five columns has sign $(-1)^{10}=1$, so $\det B=1$.
+The actual reduced block is $-u_k B$ and its determinant is a unit.
+This distinction matters for the valuation.
+
+Each diagonal scaling contributes $p^{(5+4+3+2+1)8n}=p^{120n}$.
+After undoing both scalings the monomial determinant has valuation
+$-240n$. Moving back to $E_i$ multiplies it by
+$\prod_{i=1}^{40n-1}(2/(2i)!)^2$. Since $2i<2p$, exactly the indices
+$i\ge(p+1)/2$ contribute one factor of $p$ in $(2i)!$.
+Primality forces $n$ even, so there are $(29n-2)/2$ such indices.
+We conclude
+\[
+ \val D_n(\mathbf q)=-240n-(29n-2)=-269n+2 .
+\]
+There are arbitrarily large primes congruent to $1\bmod 51$.
+Choose them greater than a fixed common denominator $Q$ to ensure
+$\mathbf q$ is integral at $p$. This proves \eqref{eq:gate}.
+
+\section{Contour and energy bound}
+The vertical residue integral starts at real part
+$\sigma_n=-\lfloor17n/20\rfloor-1/2$. Quintuple zeros of the numerator
+remove the unwanted initial fourth-derivative terms. Closing a rectangle
+and passing to the height limit gives the moment matrix multiplied by
+$-2\pi i$. Deform the two halves separately and put $D=50n$. In each half
+the eight nodes have real part $\sigma_n+D(0.017-c_j)$ and imaginary
+part $\pm D y_j$, with rational data
+\[
+\begin{array}{c|rrrrrrrr}
+j&0&1&2&3&4&5&6&7\\ \hline
+1000y_j&0&25&50&100&200&350&550&850\\
+1000c_j&17&22&10&-20&-81&-163&-257&-455
+\end{array}
+\]
+Join adjacent nodes by line segments and continue vertically from the last
+one. Holomorphy in the deformation domains and decay on the closing
+segments justify the replacement. On the truncated contour write
+$z_j=((t_j+c)/D)^2$ and $\Delta(z)=\prod_{i<j}(z_j-z_i)$.
+Expansion of the determinant, Fubini's theorem and symmetry of the
+product measure give the moment identity
+\[
+ h!\det H_{n,T}^{\rm bend}=
+ B_n\int\Delta(z)^2\prod_j w_n(t_j)\,\dd t_j,\qquad
+ B_n=\prod_{i=0}^{h-1}\big(\operatorname{lc}(E_i)D^{2i}\big)^2 .
+\]
+The scalar weight on each oriented half is
+\[
+ w_n(t)\dd t=K_n(t)\,\frac{1}{24}
+ \frac{\mathrm d^4}{\mathrm dt^4}\big(\pi\cot(\pi t)\big)\dd t .
+\] The limit on the left, after division by $h!$, is
+$(-2\pi i)^h\det H_n$.
+
+The certificate supplies 34 triples of center, radius and mass in one
+half-plane. Reflect them, giving each copy mass $m_i/2000$ from the
+integer mass $m_i$; the upper masses sum to 1000. Spread each mass
+uniformly over its circle and denote the probability measure by $\mu$.
+Its potential and energy in the positive-log convention are
+\[
+ U(z)=\sum b_i\log\max(r_i,|z-u_i|),\qquad
+ I=\int U\,\dd\mu .
+\]
+The formula for $U$ follows by circle averaging. Compare $\mu$ with the
+empirical configuration of the $z_j$, each smeared on a circle of radius
+$\varepsilon$. The signed difference has zero total mass. Its logarithmic
+energy is nonpositive, by the Gaussian integral representation of the
+logarithm and positivity of the Gaussian quadratic form. Expanding the
+three energies and bounding the change of a witness potential under
+smearing by $\varepsilon/r_i$ yields
+\[
+ \log|\Delta(z)|^2\le
+ 2h\sum_j U(z_j)-h^2 I+
+ 2h^2\varepsilon\sum_i b_i/r_i-h\log\varepsilon .
+\]
+For repeated nodes the determinant vanishes directly. Take
+$\varepsilon=1/n$; the last two terms are $o(N)$. For a lower bound on
+$I$, the diagonal interaction contributes $\log r_i$ while the
+off-diagonal interaction is at least $\log|u_i-u_j|$.
+
+For completeness, the limiting elementary phase is
+\[
+ \Phi(x,y)=-2\pi y+\sum_{(a,b,k)} k\left[
+ G(x+(b-118)/100,y)-G(x+(a-118)/100,y)-w(\log w-1)\right],
+\]
+where $w=(b-a)/100$, $G(v,y)=\tfrac v2\log(v^2+y^2)-v+
+y\arctan(v/y)$ by continuous extension at $y=0$, and the five triples are
+$(0,50,5),(186,236,5),(68,168,-6),(84,152,-4),(86,150,-2)$.
+They come from the rising products in the kernel; factorial
+normalization gives the width terms. In the upper half-plane the limiting
+contour is $x=1.18-c(y)$ with $c$ interpolating the table. The combined
+field $F(z)=\Phi(x,y)+(8/5)U(z^2)$ obeys
+\[
+ F(z)\le P_*=-8443338478/10^9.
+\]
+Here is how a finite set of inequalities controls the whole contour.
+On the 119 panels up to $y=4$, write $z_t=(1-t)z+tw$. Bounds on the
+negative second derivative make the field plus a quadratic convex
+on each smooth piece. The clipped logarithm is a maximum with a constant;
+its switching slopes permit the same chord bound across a switch.
+The phase contribution to the chord error is $t(1-t)$ times a sum of
+terms $|k||w-z|^2/(2d_v)$ over block ends. Here $d_v$ is a rounded-down
+lower bound on distance to the translated origin. A circle contributes
+$t(1-t)b_i\big(|w^2-z^2|^2/(2d_i^2)+|w-z|^2/d_i\big)$ to the potential
+bound, where $d_i$ is the larger of $r_i$ and a rounded-down minimum
+endpoint distance in the square plane. The second term accounts for the
+difference between $z_t^2$ and the chord joining the squared endpoints.
+Use $t(1-t)\le1/4$, upper endpoint values and outward rounding. The file
+\code{ChordBudget.lean} gives the exact integer comparison for each panel.
+For $y\ge4$ the vertical ray has $x=327/200$ and
+$F(z)\le P_*-6(y-4)$.
+
+Finite-product errors are controlled before taking limits: at scale $D$
+one first chooses a positive quadrature parameter to absorb the linear
+error into $\delta D$, then takes $n$ large to absorb logarithmic and
+constant terms. Explicitly the finite-product allowance is $10D\pi\eta+40/\eta+12(9+\log D)$. The real-coordinate drift is at most $2/D$. The resulting
+one-variable integral is at most $\exp(D(P_*+\delta))$ for large $n$
+and then sufficiently large truncation height. Taking the $h$-fold
+product uses $hD=N$. Stirling bounds give
+$\log B_n/N\to 12/5+(8/5)\log(5/8)$. Since $h^2/N=4/5$, the certified
+strict inequality
+\[
+ 12/5+(8/5)\log(5/8)+P_*-(4/5)I<-619/100
+\]
+absorbs the positive margins. This proves the eventual bound \eqref{eq:A}.
+
+\section{Prime costs and the arithmetic certificate}
+Let $P=p/n$ and $e_n(p)=\max(0,-\val c_n)$. Bounding
+$-\log|c_n|$ by $\sum_{p\le84n} e_n(p)\log p$ reduces the calculation to
+three bands. Weighted prime number theorem limits convert piecewise
+majorants in $P$ into integrals. Fixed breakpoints, the diagonal prime
+$p=n$ where relevant, and higher prime powers are estimated separately.
+The normalizing divisor in all three integrals is $2000$.
+
+\paragraph{Large primes.}
+For $50<P\le84$ split off the multiples of $p$ in the rational harmonic
+part. The regular power-basis part is integral. Singular sites have
+multiplicities ten or six and their ranked column capacities decrease by
+two per rank. Counting the allowed slots at each level and capping by
+$40n$ bounds the determinant valuation. The even basis adds at most
+$\max(0,80n-p)$. For $50n<p\le51n$ there are $51n+1-p$ tenfold sites and
+$8n$ sixfold sites. At levels 1 and 2 use the rank cap twice. The
+remaining slot-level counts per tenfold and sixfold site sum to 42 and
+20, respectively: the slot capacities are the positive entries of
+$m+4-2a$ for $0\le a<m$, and removing the first two levels subtracts
+two from each positive capacity. This gives at most
+$240n+42(51n-p)+42$ before the basis correction.
+For $51n<p\le59n$ only $59n+1-p$ sixfold sites remain, each with
+total capacity 30. Above $59n$ the power-basis matrix is integral.
+Consequently $e_n(p)\le n W(p/n)+42$ with the following four
+affine majorants:
+\[
+\begin{array}{c|cccc}
+ P&(50,51]&(51,59]&(59,80]&(80,84]\\ \hline
+ W(P)&2462-43P&1850-31P&80-P&0 .
+\end{array}
+\]
+Integrating these expressions and dividing by 2000 gives $1671/2000$.
+
+\paragraph{Middle primes.}
+For $11/20<P\le50$ and large $n$, $p^2>84n$. Residues fold in opposite
+pairs. In fourfold integer coordinates $p'=4\operatorname{num}(P)$,
+$d=4\operatorname{den}(P)$ the wall positions are $0,p'/2$ and
+$\min(ed\bmod p',\,p'-(ed\bmod p'))$ for $e=16,17,25,34,59$.
+Between consecutive walls, evaluate the two residue progressions at a
+representative midpoint. Each gives a descending bag of positive slot
+weights (at most 16). Multiplicities of sites and aliases come from floor
+differences of the original numerator and denominator intervals.
+For clarity, at an integer representative $t$ of one progression put
+\[
+ H(a,b)=\lfloor(bd-t)/p'\rfloor-\lfloor(ad-t)/p'\rfloor,\quad
+ m=6+4[\,t<17d\,]+2[\,t<16d\,].
+\]
+The denominator alias count is
+$u=6H(-25,25)+4H(-17,17)+2H(-16,16)-m$ and the numerator count is
+$v=5(H(-59,-34)+H(34,59))$. The base valuation is
+\[
+ v_0=v-u+6\lfloor50d/p'\rfloor+4\lfloor34d/p'\rfloor+
+ 2\lfloor32d/p'\rfloor-10\lfloor25d/p'\rfloor .
+\]
+Scan $a=m-1,\ldots,0$. For $1\le e\le m-a$ put $o=m-e-a$ and
+$\iota=o$ if $u>0$, otherwise $\iota=\min(o,v)$. With
+$l=\lfloor(34d-t)/p'\rfloor$, $r=\lfloor(34d+t)/p'\rfloor$, let $J$
+denote $r>0$ when $e$ is odd, and $l\ne r$ otherwise. At each $a$ retain
+the running maximum of zero and all scores
+$a-v_0+\iota+(e+4)[J]$ considered so far. Its positive values form the
+site slots. This rule records the worst valuations allowed by the local
+Taylor quotient and finite harmonic sums.
+For layer $j$, count all eligible slots across the strips weighted by
+their strip width, and cap the population by $40d$. The sum over
+$j=1,\ldots,16$ gives the unfolded cost. For a cut $q$ replace a weight
+$w_r$ of zero-based rank $r$ by $w_r-2\max(r-q,0)$ and add the row cost
+\[
+ 80d(K-q)-p'\,(K+q+1)(K-q)/2,\qquad K=\lfloor80d/p'\rfloor .
+\]
+The product in the numerator is even. The minimum of the unfolded
+and admissible folded costs, divided by $2000d$, is $V(P)$.
+The discrete determinant bound, for the eligible primes off the
+exceptional set, is $e_n(p)\le2000nV(P)+123648$. The additive constant
+accounts for strip boundaries and disappears after prime summation and
+normalization.
+
+On each open certificate interval the ordering of walls, floor counts
+and ranks relevant to the expression are stable. Widths are affine in
+$P$; adding costs and taking minima, including the layer caps, produces
+a concave expression. At the midpoint, choose the active branch
+at each minimum and add the selected affine supports at each sum.
+Induction on the expression gives an affine majorant that touches it at
+the midpoint; integrating this line gives exactly its midpoint value
+times the width. Continuity extends the integral estimate to
+the closed interval. For a row $[a,b]$ the contribution is at most
+$(b-a)V((a+b)/2)$ by the midpoint inequality for concave functions.
+The table stores the ceiling of this product times $10^{12}$.
+Consecutive rows cover $[11/20,50]$. Their 1,375 ceilings sum to
+$5244756877432$, yielding the normalized middle budget.
+
+\paragraph{Small primes.}
+For $P\le11/20$ put $\tau=1/P=k+u$ with $0\le u\le1$. Integer
+translation leaves the centered residue counts periodic in $u$.
+For a precise row formula let $u=n'/d'$ be a row midpoint in lowest
+terms. Sort $0,d'$ and the residues $v n'\bmod d'$ for
+$v\in\{0,\pm16,\pm17,\pm25,\pm34,\pm59\}$. For consecutive
+walls $\alpha,\beta$ define
+\[
+ T(l,r)=\left\lfloor\frac{2rn'-\alpha-\beta}{2d'}\right\rfloor
+ -\left\lfloor\frac{2ln'-\alpha-\beta}{2d'}\right\rfloor
+ -\left\lfloor\frac{(r-l)n'}{d'}\right\rfloor .
+\]
+Take the positive part of $4+6T(-25,25)+4T(-17,17)+2T(-16,16)
+-5T(-59,-34)-5T(34,59)$ and call it $v$. The means $F,G$ of
+$v,\lfloor(v-1)^2/4\rfloor$, with weights $(\beta-\alpha)/d'$, give
+the period scores. Within each of the 706 certified cells the wall
+calculation gives the midpoint integral. On a cell $[a,b]$ a majorant
+for the normalized contribution is
+\[
+ \frac{b-a}{50}\left(F S_2(a)+\frac{F+G}{80}S_3(a)\right).
+\]
+Here $S_j(a)$ sums upward-rounded $(k+a)^{-j}$ from $k=1$ if
+$a\ge9/11$ and from $k=2$ otherwise, through $16$, plus the rounded
+tail $1/((j-1)(16+a)^{j-1})$. The split at $9/11$ follows from
+$\tau\ge20/11$. Truncating first and controlling the very small primes
+uniformly justifies the infinite-period limit. Adding the rounded row
+costs gives $60166783595/10^{12}$.
+
+The three budgets sum to $6.140423661027$. The PNT permits an arbitrary
+positive margin; choosing $10^{-5}$ stays below $6.1405$. Exponentiating
+proves \eqref{eq:C}. Combining the two rounded rates gives $-99/2000$.
+
+\section{Formalization, computation and provenance}
+The root module \code{OddZetaFive} imports the unconditional statement.
+The following module names are relative to \code{OddZetaSix.B40a}.
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.27\linewidth}>{\raggedright\arraybackslash}p{.67\linewidth}@{}}
+\toprule
+Part of the argument & Representative modules\\ \midrule
+Statement and evaluation & \code{Main}, \code{PolynomialModel}, \code{Identity.Evaluation}\\
+Prime specialization & \code{Padic.WindowHermite}, \code{Padic.ConcreteGate}\\
+Contour and logarithmic energy & \code{Analysis.VandermondeContour}, \code{Analysis.SignedCircleEnergy}, \code{Analysis.AnalyticRate}\\
+Continuous field bounds & \code{Analysis.ChordGeometry}, \code{Analysis.CertifiedField}, \code{Analysis.RayTail}\\
+Arithmetic bounds & \code{Arithmetic.MiddleIntegral}, \code{Arithmetic.MiddleBandRate}, \code{Arithmetic.OuterBandsRate}, \code{Arithmetic.ArithRate}\\
+Finite data and trust & \code{Certificate.Generated.All},\newline \code{Certificate.ArithmeticNativeAudit}\\
+\bottomrule
+\end{tabular}
+\end{center}
+The project pins Lean 4.34.0-rc2 and Mathlib. The local PNT package
+selects sources from \emph{PrimeNumberTheoremAnd} (revision
+\code{c39a7511}) and \emph{LeanArchitect} (\code{468e8f58}).
+Its provenance manifest records the exact revisions, hashes and
+source transformations, including a compatibility change in the Wiener
+module. Weighted prime limits enter the arithmetic proof via
+\code{Arithmetic.WeightedPNT}.
+
+The rebuilt release exports
+\begin{flushleft}\small\ttfamily
+OddZetaSix.B40a.\\
+exists\_irrational\_riemannZeta\_seven\_to\_fifteen
+\end{flushleft}
+The fresh \texttt{\#print axioms} audit lists \code{propext},
+\code{Classical.choice}, \code{Quot.sound}, and one computational axiom:
+\begin{flushleft}\small\ttfamily
+OddZetaSix.B40a.Cert.Native.middle\_rows\_checked.\\
+\_native.native\_decide.ax\_1\_1
+\end{flushleft}
+The analytic rate, the specialized determinant valuation, the small-prime
+rate and the high-prime rate each printed precisely the first three
+axioms. The arithmetic rate printed the same four as the top theorem.
+The complete output accompanies the source as \code{reports/axioms.log}.
+The compiler evaluates 1,375 rational row checks. Their combined Boolean
+result enters the middle-band budget and hence the final theorem. A pilot
+using one folding witness per row exceeded the two-minute limit on the
+first 32-row shard. The retained proof uses native evaluation at this
+point. The audit is reproducible by building the package and passing
+\code{OddZetaFiveAudit.lean} to Lean. The separate Python verifier uses
+integer and rational arithmetic, enclosing logarithms by directed
+bounds around correctly rounded standard-library decimal logarithms.
+It checks both exact arithmetic row tables, the high-prime integral,
+the energy lower bound, each continuous panel budget, and the ray budget.
+This corroborates the data, while the Lean computation retains the
+trust dependency displayed above.
+
+\begin{thebibliography}{9}
+\bibitem{zud} W. Zudilin, \emph{Arithmetic of linear forms involving odd
+zeta values}, \url{https://arxiv.org/abs/math/0206176}.
+\bibitem{zud2} W. Zudilin, \emph{Irrationality of values of zeta-function},
+arXiv:math/0104249 (2001),
+\url{https://arxiv.org/abs/math/0104249}.
+\bibitem{six} \texttt{janahesse580-star}, \emph{odd-zeta-six-lean},
+GitHub revision\newline
+\href{https://github.com/janahesse580-star/odd-zeta-six-lean/tree/09201a928982c1e282ba2a1a3156d8f400d4b436}{\code{09201a928982c1e282ba2a1a3156d8f400d4b436}}.
+\end{thebibliography}
+\end{document}

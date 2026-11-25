@@ -1,0 +1,4 @@
+Middle000 / 32 actual rows; one precomputed choice per row; list-based costs. lean -j1 -M4096 Pilot.lean; 120 s wall-clock timeout.
+TIMEOUT: Lean process terminated at the 120 s limit.
+Elapsed 120.11 s
+Separate evaluator control: replacing only the final proof with #eval on the same 32 row/witness pairs printed true (Lean exit 0, 15.42 s). This was not a kernel proof.

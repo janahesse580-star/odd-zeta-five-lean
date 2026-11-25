@@ -1,0 +1,10 @@
+mathlib dc4b8d60d5edb3c493c3662126b1b7ccae7d67cf clean; 9055 tracked Lean source blobs matched
+plausible d9598f07b1bc701f1e3aae163d2681c1fd978793 clean; 28 tracked Lean source blobs matched
+LeanSearchClient ba67e212be1197b84c1f1f6299488a10a3002713 clean; 8 tracked Lean source blobs matched
+importGraph 5020974361be4f90652801a0368827bc8ed70c42 clean; 44 tracked Lean source blobs matched
+proofwidgets a8acbfd87375ff4abe14ce09db5b7664d383bc7f clean; 46 tracked Lean source blobs matched
+aesop 18889deb9e83ea7420ef51c160d6f88552e744e3 clean; 250 tracked Lean source blobs matched
+Qq 507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3 clean; 28 tracked Lean source blobs matched
+batteries 4cac2177c37f5530c4da76aa8e4307f3fc9e4dcb clean; 258 tracked Lean source blobs matched
+Cli ab3a82db9fea14cf0fd7f5a2de650f4b534640af clean; 5 tracked Lean source blobs matched
+22 vendored module hashes verified
