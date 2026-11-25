@@ -44,6 +44,8 @@ jobs:
           python3 -I -S verify-certificate.py | tee ci-logs/certificate.log
           python3 -I -S b40a/generate.py --output "$RUNNER_TEMP/generated"
           diff -ru OddZetaSix/B40a/Certificate/Generated "$RUNNER_TEMP/generated"
+          python3 -I -S b40a/generate-middle-witnesses.py --output "$RUNNER_TEMP/middle-witnesses"
+          diff -ru OddZetaSix/B40a/Certificate/FastGenerated "$RUNNER_TEMP/middle-witnesses"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         if: always()
         with:

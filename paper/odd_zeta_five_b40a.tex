@@ -18,7 +18,7 @@
 \title{Irrationality in the five odd zeta values from 7 to 15\\
 \large A determinant construction with a Lean 4 certificate}
 \author{JanaHesse580\\ \small\texttt{JanaHesse580@gmail.com}}
-\date{November 2026 \qquad Software release 1.0.0}
+\date{November 2026 \qquad Software release 1.1.0}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -29,9 +29,9 @@ $2000n^2$ the analytic determinant has upper exponent $-6.19$, while
 clearing its polynomial content costs at most $6.1405$. A confluent
 interpolation calculation at primes $51n+1$ supplies nonvanishing at
 rational specializations. The accompanying Lean development formalizes
-the argument. One finite check on 1,375 arithmetic rows uses native
-evaluation. A separate standard-library Python program recomputes these
-rows and the numerical bounds.
+the argument. The Lean kernel checks all 1,375 middle-prime rows, and
+the formal theorem uses only Lean's three standard axioms. A separate
+standard-library Python program recomputes the numerical bounds.
 \end{abstract}
 
 \section{Statement and the integer contradiction}
@@ -412,7 +412,7 @@ Prime specialization & \code{Padic.WindowHermite}, \code{Padic.ConcreteGate}\\
 Contour and logarithmic energy & \code{Analysis.VandermondeContour}, \code{Analysis.SignedCircleEnergy}, \code{Analysis.AnalyticRate}\\
 Continuous field bounds & \code{Analysis.ChordGeometry}, \code{Analysis.CertifiedField}, \code{Analysis.RayTail}\\
 Arithmetic bounds & \code{Arithmetic.MiddleIntegral}, \code{Arithmetic.MiddleBandRate}, \code{Arithmetic.OuterBandsRate}, \code{Arithmetic.ArithRate}\\
-Finite data and trust & \code{Certificate.Generated.All},\newline \code{Certificate.ArithmeticNativeAudit}\\
+Finite data and checks & \code{Certificate.Generated.All}, \code{Certificate.FastMiddleSound}, \code{Certificate.FastGenerated.All}\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -429,28 +429,41 @@ The rebuilt release exports
 OddZetaSix.B40a.\\
 exists\_irrational\_riemannZeta\_seven\_to\_fifteen
 \end{flushleft}
-The fresh \texttt{\#print axioms} audit lists \code{propext},
-\code{Classical.choice}, \code{Quot.sound}, and one computational axiom:
-\begin{flushleft}\small\ttfamily
-OddZetaSix.B40a.Cert.Native.middle\_rows\_checked.\\
-\_native.native\_decide.ax\_1\_1
-\end{flushleft}
-The analytic rate, the specialized determinant valuation, the small-prime
-rate and the high-prime rate each printed precisely the first three
-axioms. The arithmetic rate printed the same four as the top theorem.
-The complete output accompanies the source as \code{reports/axioms.log}.
-The compiler evaluates 1,375 rational row checks. Their combined Boolean
-result enters the middle-band budget and hence the final theorem. A pilot
-using one folding witness per row exceeded the two-minute limit on the
-first 32-row shard. The retained proof uses native evaluation at this
-point. The audit is reproducible by building the package and passing
-\code{OddZetaFiveAudit.lean} to Lean. The separate Python verifier uses
-integer and rational arithmetic, enclosing logarithms by directed
-bounds around correctly rounded standard-library decimal logarithms.
-It checks both exact arithmetic row tables, the high-prime integral,
-the energy lower bound, each continuous panel budget, and the ray budget.
-This corroborates the data, while the Lean computation retains the
-trust dependency displayed above.
+The \texttt{\#print axioms} audit gives exactly \code{propext},
+\code{Classical.choice} and \code{Quot.sound}. The analytic and arithmetic
+rates, the specialized determinant valuation and the two outer-prime rates
+give the same set. Version 1.1.0 removes the compiler-generated
+\code{native_decide} axiom used in version 1.0.0. The complete audit is in
+\code{reports/axioms.log} and can be repeated with
+\code{lake env lean OddZetaFiveAudit.lean} after building.
+
+\paragraph{Kernel evaluation of the middle-prime rows.}
+Each difference of floor indices in a site count is unchanged by
+$t\mapsto t+kp'$, since both indices decrease by $k$. For $t\ge p'$,
+the two parity penalties both apply. The site multiplicity then depends
+only on which of the three intervals with endpoints $0,16d,17d,25d$
+contains $t$. The initial site and the integer lengths of these three
+runs give the exact histogram in each half-strip. In the inner Taylor
+maximum, the score decreases with $e$ when the penalty is absent and
+increases with $e$ when it applies, in each case allowing equality.
+Thus it suffices to use the appropriate endpoint of each parity.
+
+For a bin of weight $w\ge j$ starting at rank $s$ with $c$ entries,
+the folded population in layer $j$ is
+\[
+ \min\!\left(c,\ \max\!\left(0,q+1+\left\lfloor (w-j)/2\right\rfloor-s\right)\right).
+\]
+The unfolded population for that bin is $c$. The Lean bridge proves that
+these counts equal those of the original sorted bags and that their cost
+for the selected cut bounds the original minimum from above. A final
+integer cross multiplication certifies each stored row upper bound.
+The kernel verifies all 43 shards by \code{decide +kernel}. The first
+32 rows took 25.3 seconds of kernel type checking on one thread.
+
+The separate Python verifier recomputes both arithmetic row tables,
+the high-prime integral, the energy bound, the continuous panel budgets
+and the ray budget. It uses integer and rational arithmetic and bounds
+logarithms around correctly rounded standard-library decimal evaluations.
 
 \begin{thebibliography}{9}
 \bibitem{zud} W. Zudilin, \emph{Arithmetic of linear forms involving odd

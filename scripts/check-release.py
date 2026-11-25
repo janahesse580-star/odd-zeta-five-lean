@@ -9,25 +9,24 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 NAMESPACE = "OddZetaSix.B40a."
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
-NATIVE = NAMESPACE + "Cert.Native.middle_rows_checked._native.native_decide.ax_1_1"
-EXPECTED = {
-    "exists_irrational_riemannZeta_seven_to_fifteen": STANDARD | {NATIVE},
-    "content_arithmetic_exp": STANDARD | {NATIVE},
-    "determinant_analytic_rate": STANDARD,
-    "rational_det_valuation": STANDARD,
-    "small_prime_cost_rate": STANDARD,
-    "high_prime_cost_rate": STANDARD,
-}
+AUDITED = (
+    "exists_irrational_riemannZeta_seven_to_fifteen",
+    "content_arithmetic_exp",
+    "determinant_analytic_rate",
+    "rational_det_valuation",
+    "small_prime_cost_rate",
+    "high_prime_cost_rate",
+)
 
 def check_audit(path):
     output = path.read_text(encoding="utf-8")
-    for name, expected in EXPECTED.items():
+    for name in AUDITED:
         pattern = r"'" + re.escape(NAMESPACE + name) + r"' depends on axioms:\s*\[([^\]]*)\]"
         hits = re.findall(pattern, output)
         if len(hits) != 1:
             raise SystemExit(f"Missing or duplicate audit entry for {name}")
         actual = {item.strip() for item in hits[0].split(",")}
-        if actual != expected:
+        if actual != STANDARD:
             raise SystemExit(f"{name} dependencies changed: {sorted(actual)}")
         print(f"{name}: exact dependency set verified")
 

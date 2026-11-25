@@ -1,6 +1,6 @@
 import OddZetaSix.B40a.Arithmetic.MiddleIntegral
 import OddZetaSix.B40a.Arithmetic.WeightedPNT
-import OddZetaSix.B40a.Certificate.ArithmeticNativeAudit
+import OddZetaSix.B40a.Certificate.FastGenerated.All
 
 noncomputable section
 namespace OddZetaSix.B40a
@@ -48,7 +48,7 @@ private theorem budget : (∑ i : MiddleIndex,∫ x in midLo i..midHi i,midW i x
   have hv : (∑ i : MiddleIndex,rowValue false (midRow i)) = (middleRows.map (rowValue false)).sum := by
     rw [←List.sum_ofFn]
     exact List.ofFn_getElem_eq_map middleRows (rowValue false) |> congrArg List.sum
-  have hb := checkedArithRows_sum_bound false _ Native.middle_rows_checked
+  have hb := fast_middle_rows_sum_bound
   rw [←hv,middleRows_exact_budget] at hb
   have hR := (Rat.cast_le (K:=ℝ)).mpr hb
   rw [Rat.cast_sum] at hR

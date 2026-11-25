@@ -3,15 +3,10 @@ OddZetaSix.B40a.exists_irrational_riemannZeta_seven_to_fifteen : ∃ s ∈ {7, 9
   Irrational (riemannZeta ↑s).re
 'OddZetaSix.B40a.exists_irrational_riemannZeta_seven_to_fifteen' depends on axioms: [propext,
  Classical.choice,
- Quot.sound,
- OddZetaSix.B40a.Cert.Native.middle_rows_checked._native.native_decide.ax_1_1]
+ Quot.sound]
 'OddZetaSix.B40a.determinant_analytic_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OddZetaSix.B40a.rational_det_valuation' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OddZetaSix.B40a.content_arithmetic_exp' depends on axioms: [propext,
- Classical.choice,
- Quot.sound,
- OddZetaSix.B40a.Cert.Native.middle_rows_checked._native.native_decide.ax_1_1]
+'OddZetaSix.B40a.content_arithmetic_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OddZetaSix.B40a.small_prime_cost_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OddZetaSix.B40a.high_prime_cost_rate' depends on axioms: [propext, Classical.choice, Quot.sound]
-
-exit=0 wall_seconds=19.2
+exit=0 wall_seconds=26.8
