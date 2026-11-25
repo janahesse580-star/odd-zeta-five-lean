@@ -1,5 +1,7 @@
 # Odd Zeta Five · B40a
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24528775.svg)](https://doi.org/10.5281/zenodo.24528775)
+
 At least one of **ζ(7), ζ(9), ζ(11), ζ(13), ζ(15)** is irrational. The root module `OddZetaFive.lean` imports the theorem in its original namespace. The real part refers to Mathlib's complex Riemann zeta function evaluated at a positive integer.
 
 ```lean
