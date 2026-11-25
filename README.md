@@ -1,6 +1,6 @@
 # Odd Zeta Five · B40a
 
-[![Archived v1.0.0 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24528775.svg)](https://doi.org/10.5281/zenodo.24528775)
+[![Archived v1.1.0 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24530997.svg)](https://doi.org/10.5281/zenodo.24530997)
 
 At least one of **ζ(7), ζ(9), ζ(11), ζ(13), ζ(15)** is irrational. The root module `OddZetaFive.lean` imports the theorem in its original namespace. The real part refers to Mathlib's complex Riemann zeta function evaluated at a positive integer.
 
@@ -72,5 +72,5 @@ The local `PNTDependency` is a separate source package. It vendors selected code
 
 Version **1.1.0** is authored by **JanaHesse580** (<JanaHesse580@gmail.com>). The root license is MIT. Vendored licenses and attribution accompany their sources. The LaTeX paper builds with `tectonic paper/odd_zeta_five_b40a.tex` or two passes of pdfLaTeX in the paper directory. [Citation metadata](CITATION.cff) · [License](LICENSE)
 
-The badge above identifies the archived v1.0.0 release. The concept DOI identifies the software across releases. [Concept DOI](https://doi.org/10.5281/zenodo.24528774)
+The badge above identifies the archived v1.1.0 release. The [v1.0.0 archive](https://doi.org/10.5281/zenodo.24528775) remains available. The concept DOI identifies the software across releases. [Concept DOI](https://doi.org/10.5281/zenodo.24528774)
 
