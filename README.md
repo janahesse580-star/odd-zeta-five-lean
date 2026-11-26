@@ -2,6 +2,8 @@
 
 [![Archived v1.1.0 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24530997.svg)](https://doi.org/10.5281/zenodo.24530997)
 
+> **Update (Four-Term Breakthrough):** This formalization has been strengthened to prove that at least one of the four odd zeta values $\zeta(7), \zeta(9), \zeta(11), \zeta(13)$ is irrational under pure standard axioms — see [`odd-zeta-four-lean`](https://github.com/janahesse580-star/odd-zeta-four-lean) (Zenodo Concept DOI: [`10.5281/zenodo.24554179`](https://doi.org/10.5281/zenodo.24554179)).
+
 At least one of **ζ(7), ζ(9), ζ(11), ζ(13), ζ(15)** is irrational. The root module `OddZetaFive.lean` imports the theorem in its original namespace. The real part refers to Mathlib's complex Riemann zeta function evaluated at a positive integer.
 
 ```lean
